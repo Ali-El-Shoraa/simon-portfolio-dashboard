@@ -1,19 +1,59 @@
-@import 'tailwindcss';
+@import url('../assets/fonts/CabinetGrotesk_Complete/css/cabinet-grotesk.css');
 
+@import 'tailwindcss';
 @plugin 'tailwindcss-animate';
 
-@source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/**/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
 
+@source '../views';
+
+@source '../components/**/*.blade.php';
 @custom-variant dark (&:is(.dark *));
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('../assets/fonts/DM_Sans/DMSans-VariableFont.ttf') format('truetype');
+    font-weight: 100 900; /* لخط متغير */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* @font-face {
+    font-family: 'DM Sans';
+    src: url('../assets/fonts/CabinetGrotesk_Complete/Fonts/WEB/fonts/') format('truetype');
+    font-weight: 100 900; 
+    font-style: normal;
+    font-display: swap;
+} */
+.bottom-border {
+    @apply border-b-2 border-gray-900;
+}
+
+.full-border {
+    @apply border-2 border-gray-900;
+}
 
 @theme {
     --font-sans:
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-dm-sans: 'DM Sans', sans-serif;
+    --font-cabinet: 'CabinetGrotesk-Regular', 'CabinetGrotesk-Variable', sans-serif;
 
+    --spacing-30: 1.875rem;
+    --spacing-38: 9.375rem;
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
+
+    --color-black-light: var(--black-light);
+    --color-purple: var(--purple);
+    --color-purple-light: var(--purple-light);
+    --color-purple-light-secoundary: var(--purple-light-secoundary);
+    --color-pink-light: var(--pink-light);
+    --color-green-light: var(--green-light);
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -60,6 +100,12 @@
 }
 
 :root {
+    --purple: #7575c8;
+    --purple-light: #e3e3ff;
+    --purple-light-secoundary: #e3f2ff;
+    --black-light: #1d1d1d;
+    --pink-light: #fde4f9;
+    --green-light: #f3ffe3;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -137,5 +183,9 @@
 
     body {
         @apply bg-background text-foreground;
+    }
+
+    .container-1140 {
+        @apply mx-auto max-w-[1140px] max-lg:px-8;
     }
 }
